@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.entity.Account;
 import com.example.entity.Customer;
-import com.example.entity.User;
 import com.example.service.IAccountService;
 
 @RestController

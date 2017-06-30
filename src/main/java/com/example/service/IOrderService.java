@@ -1,0 +1,18 @@
+package com.example.service;
+
+import java.util.List;
+
+import com.example.entity.Order;
+
+public interface IOrderService
+{
+
+    List<Order> findAll();
+
+    Order findById(Long id);
+
+    Order save(Order order);
+
+    List<Order> findByName(String name);
+
+}
