@@ -20,26 +20,26 @@ import lombok.ToString;
 @Entity
 @Table(name = "orders")
 @ToString
-public class Order 
+public class Order
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private @Getter @Setter Long id;
 
-    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, optional = true)
-    @JoinColumn( nullable = false)
-    private Account account;
+    @ManyToOne(cascade = { CascadeType.ALL }, optional = true)
+    @JoinColumn(nullable = false)
+    private @Getter @Setter Account account;
 
     @Column(nullable = false)
-    private Date orderDate;
+    private @Getter @Setter Date orderDate;
 
     @Column(nullable = false)
-    private String orderStatus;
+    private @Getter @Setter String orderStatus;
 
-    @OneToMany(cascade = { CascadeType.REFRESH, CascadeType.PERSIST, CascadeType.MERGE,
-            CascadeType.REMOVE }, mappedBy = "order")
-    private Set<OrderItem> orderItems;
+    @OneToMany(cascade = { CascadeType.ALL }, mappedBy = "order")
+    private @Getter @Setter Set<OrderItem> orderItems;
 
     @Column(length = 2000)
-    private String orderDesc;
+    private @Getter @Setter String orderDesc;
+
 }

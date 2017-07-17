@@ -42,7 +42,7 @@ class AccountServiceImpl implements IAccountService
     public List<Customer> findAll(int page, int pageSize)
     {
 
-        TypedQuery query = em.createQuery("select c from Customer c", Customer.class);
+        TypedQuery<Customer> query = em.createQuery("select c from Customer c", Customer.class);
 
         query.setFirstResult(page * pageSize);
         query.setMaxResults(pageSize);
@@ -54,7 +54,7 @@ class AccountServiceImpl implements IAccountService
     public List<Customer> findByLastname(String lastname, int page, int pageSize)
     {
 
-        TypedQuery query = em.createQuery("select c from Customer c where c.lastname = ?1", Customer.class);
+        TypedQuery<Customer> query = em.createQuery("select c from Customer c where c.lastname = ?1", Customer.class);
 
         query.setParameter(1, lastname);
         query.setFirstResult(page * pageSize);

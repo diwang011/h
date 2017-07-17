@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 import lombok.ToString;
 
@@ -17,13 +19,14 @@ import lombok.ToString;
 @Entity
 @Table(name = "orderItem")
 @ToString
+@JsonIgnoreProperties("order")
 public class OrderItem
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @ManyToOne(cascade = { CascadeType.MERGE, CascadeType.REFRESH }, optional = true)
+    @ManyToOne(cascade = { CascadeType.ALL }, optional = true)
     @JoinColumn(nullable = false)
     private Order order;
 
@@ -31,5 +34,6 @@ public class OrderItem
     private String sku;
 
     @Column(nullable = false)
-    private String quantity;
+    private Integer quantity;
+
 }
