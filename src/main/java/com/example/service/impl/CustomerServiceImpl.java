@@ -6,13 +6,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.entity.Customer;
 import com.example.repository.CustomerRepository;
 import com.example.service.ICustomerService;
 
-@Repository
+@Service
 @Transactional(readOnly = true)
 public class CustomerServiceImpl implements ICustomerService
 {

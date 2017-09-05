@@ -8,6 +8,7 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.example.entity.Account;
@@ -15,7 +16,7 @@ import com.example.entity.Customer;
 import com.example.repository.AccountRepository;
 import com.example.service.IAccountService;
 
-@Repository
+@Service
 @Transactional(readOnly = true)
 class AccountServiceImpl implements IAccountService
 {
